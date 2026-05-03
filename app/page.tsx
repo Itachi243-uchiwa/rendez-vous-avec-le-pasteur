@@ -1,65 +1,201 @@
-import Image from "next/image";
+'use client';
 
-export default function Home() {
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Header from '@/components/shared/Header';
+import BookingForm from '@/components/booking/BookingForm';
+import QueueStatus from '@/components/booking/QueueStatus';
+import Card from '@/components/ui/Card';
+import type { Appointment } from '@/lib/types';
+
+const FEATURES = [
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={1.8}>
+        <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+      </svg>
+    ),
+    title: '30 ou 60 min',
+    desc: 'Choisissez votre durée',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={1.8}>
+        <rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+      </svg>
+    ),
+    title: 'Confidentiel',
+    desc: 'Votre nom est protégé',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5" stroke="currentColor" strokeWidth={1.8}>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+      </svg>
+    ),
+    title: 'File en direct',
+    desc: 'Suivez en temps réel',
+  },
+];
+
+export default function HomePage() {
+  const [appointment, setAppointment] = useState<Appointment | null>(null);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="relative min-h-screen flex flex-col z-10">
+      {/* ── Header ─────────────────────────────────────────── */}
+      <Header />
+
+      {/* ── Hero ───────────────────────────────────────────── */}
+      <section className="relative overflow-hidden">
+        {/* Fond dégradé couleurs du logo */}
+        <div className="absolute inset-0" style={{
+          background: 'linear-gradient(135deg, #3D0870 0%, #6B0FAB 35%, #9C1B8A 65%, #1565C0 100%)'
+        }} />
+
+        {/* Blobs animés */}
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.25, 0.15] }}
+          transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl"
+          style={{ background: 'radial-gradient(circle, #C2185B80, transparent 70%)' }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <motion.div
+          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.18, 0.1] }}
+          transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
+          className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full blur-3xl"
+          style={{ background: 'radial-gradient(circle, #1565C080, transparent 70%)' }}
+        />
+
+        {/* Pattern croix */}
+        <div className="absolute inset-0 opacity-[0.04]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='27' y='10' width='6' height='40' rx='1' fill='white'/%3E%3Crect x='10' y='24' width='40' height='6' rx='1' fill='white'/%3E%3C/svg%3E")`,
+          backgroundSize: '60px 60px',
+        }} />
+
+        <div className="relative px-4 pt-14 pb-28 max-w-xl mx-auto text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 text-sm mb-7">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+              </span>
+              Sessions disponibles aujourd&apos;hui
+            </div>
+
+            <h1 className="font-display text-4xl md:text-5xl font-bold leading-[1.15] mb-3">
+              Rencontrez{' '}
+              <em className="not-italic" style={{
+                background: 'linear-gradient(90deg, #F9A8D4, #E879F9, #93C5FD)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                le Pasteur
+              </em>
+            </h1>
+
+            <p className="text-white/65 text-sm leading-relaxed mb-2">
+              AMOUR · SAINTETÉ · PUISSANCE · ÉQUILIBRE
+            </p>
+            <p className="text-white/55 text-sm max-w-xs mx-auto">
+              Un moment d&apos;échange après le culte — simple, rapide, sans inscription.
+            </p>
+          </motion.div>
         </div>
+      </section>
+
+      {/* ── Main card ──────────────────────────────────────── */}
+      <main className="relative flex-1 max-w-lg mx-auto w-full px-4 -mt-14 pb-10 z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+          <Card
+            className="overflow-hidden"
+            style={{ boxShadow: '0 12px 50px rgba(94,15,171,0.18)' }}
+          >
+            <AnimatePresence mode="wait">
+              {!appointment ? (
+                <motion.div
+                  key="form"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.25 }}
+                  className="p-6 md:p-8"
+                >
+                  <BookingForm onSuccess={setAppointment} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="status"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="p-6 md:p-8"
+                >
+                  <motion.div
+                    initial={{ scale: 0.85, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                    className="flex items-center justify-center gap-2 rounded-2xl px-4 py-3 mb-6 border"
+                    style={{ background: '#F0FDF4', borderColor: '#BBF7D0', color: '#15803D' }}
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 shrink-0" stroke="currentColor" strokeWidth={2.5}>
+                      <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="font-semibold text-sm">Réservation confirmée !</span>
+                  </motion.div>
+                  <QueueStatus appointment={appointment} onReset={() => setAppointment(null)} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </Card>
+        </motion.div>
+
+        {/* Feature badges */}
+        <AnimatePresence>
+          {!appointment && (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ delay: 0.35 }}
+              className="grid grid-cols-3 gap-3 mt-5"
+            >
+              {FEATURES.map((f, i) => (
+                <motion.div
+                  key={f.title}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.35 + i * 0.07 }}
+                  whileHover={{ y: -2, boxShadow: '0 8px 24px rgba(94,15,171,0.12)' }}
+                  className="bg-white border border-[#EDE6FF] rounded-2xl p-3.5 text-center cursor-default"
+                >
+                  <div className="inline-flex items-center justify-center w-9 h-9 rounded-xl mb-2 text-[#7B1FA2]"
+                    style={{ background: 'linear-gradient(135deg, #F5EEFF, #EDE6FF)' }}>
+                    {f.icon}
+                  </div>
+                  <p className="text-xs font-semibold text-[#3D0870] leading-tight">{f.title}</p>
+                  <p className="text-[10px] text-[#8B7AAF] mt-0.5 leading-tight">{f.desc}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
+
+      <footer className="relative text-center py-6 text-xs text-[#8B7AAF] z-10">
+        © {new Date().getFullYear()} La Compassion Bruxelles &mdash; Amour · Sainteté · Puissance · Équilibre
+      </footer>
     </div>
   );
 }

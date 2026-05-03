@@ -1,26 +1,62 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand — tiré du logo La Compassion */
+  --color-purple:       #5E0FAB;   /* violet profond du texte */
+  --color-purple-light: #8B31D4;   /* violet medium */
+  --color-purple-dark:  #3D0870;   /* violet très sombre */
+  --color-pink:         #C2185B;   /* rose/magenta du globe */
+  --color-blue:         #1565C0;   /* bleu du globe */
+  --color-lavender:     #F5F0FF;   /* fond très doux */
+  --color-lavender-mid: #EDE6FF;
+  --color-muted:        #8B7AAF;
+
+  --font-sans:    var(--font-inter);
+  --font-display: var(--font-playfair);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #F7F4FF;
+  color: #2D1B5E;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle grain texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #8B31D450; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #8B31D4; }
+
+*:focus-visible {
+  outline: 2px solid #8B31D4;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+::selection { background: #8B31D430; color: #3D0870; }
+
+.font-display { font-family: var(--font-playfair), Georgia, serif; }
+
+/* Gradient utilitaire du logo */
+.brand-gradient {
+  background: linear-gradient(135deg, #C2185B 0%, #7B1FA2 50%, #1565C0 100%);
+}
+.brand-gradient-text {
+  background: linear-gradient(135deg, #C2185B 0%, #7B1FA2 50%, #1565C0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

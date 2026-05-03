@@ -1,0 +1,20 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Appointments: anyone can read (queue visibility) and create
+    // Only authenticated admins can update/delete
+    match /appointments/{id} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if request.auth != null;
+    }
+
+    // Slots: read for all, write only for admins
+    match /slots/{id} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+  }
+}
