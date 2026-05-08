@@ -42,7 +42,7 @@ export default function AppointmentCard({ appointment: appt, index }: Props) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.04 }}
       layout
-      className={`relative bg-white rounded-2xl border border-[#EDE6FF] border-l-4 overflow-hidden transition-all duration-300
+      className={`relative bg-white rounded-2xl border border-[#B8C8DF] border-l-4 overflow-hidden transition-all duration-300
         ${isDone ? 'opacity-50' : 'shadow-sm hover:shadow-md'}`}
       style={{ borderLeftColor: LEFT_BORDER[appt.status] }}
     >
@@ -52,7 +52,7 @@ export default function AppointmentCard({ appointment: appt, index }: Props) {
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute top-0 left-0 right-0 h-0.5"
-          style={{ background: 'linear-gradient(90deg, #C2185B, #7B1FA2)' }}
+          style={{ background: 'linear-gradient(90deg, #B8860B, #C9A227)' }}
         />
       )}
 
@@ -64,15 +64,15 @@ export default function AppointmentCard({ appointment: appt, index }: Props) {
               className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold shrink-0 text-white"
               style={{
                 background: appt.status === 'active'
-                  ? 'linear-gradient(135deg, #C2185B, #7B1FA2)'
-                  : 'linear-gradient(135deg, #5E0FAB, #8B31D4)',
+                  ? 'linear-gradient(135deg, #B8860B, #C9A227)'
+                  : 'linear-gradient(135deg, #0D1B3E, #1A3068)',
               }}
             >
               {appt.name.charAt(0).toUpperCase()}
             </div>
             <div className="min-w-0">
-              <h3 className="font-semibold text-[#2D1B5E] truncate">{appt.name}</h3>
-              {appt.reason && <p className="text-xs text-[#8B7AAF] truncate mt-0.5">{appt.reason}</p>}
+              <h3 className="font-semibold text-[#0D1B3E] truncate">{appt.name}</h3>
+              {appt.reason && <p className="text-xs text-[#475569] truncate mt-0.5">{appt.reason}</p>}
             </div>
           </div>
           <Badge className={`${statusColor(appt.status)} shrink-0`}>
@@ -81,7 +81,7 @@ export default function AppointmentCard({ appointment: appt, index }: Props) {
         </div>
 
         {/* Méta */}
-        <div className="flex items-center gap-3 text-xs text-[#8B7AAF] mb-3">
+        <div className="flex items-center gap-3 text-xs text-[#475569] mb-3">
           <span className="flex items-center gap-1">
             <svg viewBox="0 0 24 24" fill="none" className="w-3.5 h-3.5" stroke="currentColor" strokeWidth={2}>
               <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
@@ -94,17 +94,17 @@ export default function AppointmentCard({ appointment: appt, index }: Props) {
             </svg>
             {formatTime(appt.estimatedStartTime)}
           </span>
-          <span className="ml-auto font-mono font-semibold" style={{ color: '#8B31D4' }}>#{appt.position}</span>
+          <span className="ml-auto font-mono font-semibold" style={{ color: '#C9A227' }}>#{appt.position}</span>
         </div>
 
         {/* Actions */}
         {!isDone && (
-          <div className="flex gap-2 pt-2 border-t border-[#F0EAFF]">
+          <div className="flex gap-2 pt-2 border-t border-[#D8E3F5]">
             {appt.status === 'waiting' && (
               <button
                 onClick={handleStart}
                 className="flex-1 flex items-center justify-center gap-1.5 text-white text-xs font-semibold py-2 rounded-xl transition-opacity hover:opacity-90 cursor-pointer"
-                style={{ background: 'linear-gradient(135deg, #5E0FAB, #3D0870)' }}
+                style={{ background: 'linear-gradient(135deg, #1A3068, #0D1B3E)' }}
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-3 h-3">
                   <polygon points="5 3 19 12 5 21 5 3" />

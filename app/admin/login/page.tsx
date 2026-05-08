@@ -29,23 +29,23 @@ export default function AdminLoginPage() {
 
   return (
     <div className="min-h-screen relative flex flex-col items-center justify-center px-4 overflow-hidden">
-      {/* Fond dégradé */}
+      {/* Fond dégradé navy Bruxelles */}
       <div className="absolute inset-0" style={{
-        background: 'linear-gradient(135deg, #1A0038 0%, #3D0870 40%, #6B0FAB 70%, #1565C0 100%)'
+        background: 'linear-gradient(135deg, #02080F 0%, #060D1F 40%, #0D1B3E 70%, #152B5C 100%)'
       }} />
 
       {/* Blobs */}
       <motion.div
-        animate={{ scale: [1, 1.12, 1], opacity: [0.12, 0.22, 0.12] }}
+        animate={{ scale: [1, 1.12, 1], opacity: [0.10, 0.18, 0.10] }}
         transition={{ duration: 11, repeat: Infinity }}
         className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/3 translate-x-1/3"
-        style={{ background: 'radial-gradient(circle, #C2185B, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, #C9A22740, transparent 70%)' }}
       />
       <motion.div
-        animate={{ scale: [1, 1.08, 1], opacity: [0.08, 0.14, 0.08] }}
+        animate={{ scale: [1, 1.08, 1], opacity: [0.06, 0.12, 0.06] }}
         transition={{ duration: 15, repeat: Infinity, delay: 4 }}
         className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"
-        style={{ background: 'radial-gradient(circle, #1565C0, transparent 70%)' }}
+        style={{ background: 'radial-gradient(circle, #2B4A8C50, transparent 70%)' }}
       />
 
       {/* Pattern croix */}
@@ -61,7 +61,7 @@ export default function AdminLoginPage() {
         transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
         className="relative z-10 w-full max-w-sm"
       >
-        {/* Logo complet — format paysage respecté */}
+        {/* Logo blanc */}
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export default function AdminLoginPage() {
           className="relative h-20 w-full mb-8"
         >
           <Image
-            src="/logo.png"
+            src="/NEW logo compassion bruxelles.png"
             alt="La Compassion Bruxelles"
             fill
             sizes="384px"
@@ -98,7 +98,7 @@ export default function AdminLoginPage() {
                 required
                 autoComplete="email"
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/30
-                  focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 outline-none text-sm transition-all"
+                  focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 outline-none text-sm transition-all"
               />
             </div>
             <div>
@@ -111,7 +111,7 @@ export default function AdminLoginPage() {
                 required
                 autoComplete="current-password"
                 className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/30
-                  focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 outline-none text-sm transition-all"
+                  focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 outline-none text-sm transition-all"
               />
             </div>
 
@@ -121,7 +121,7 @@ export default function AdminLoginPage() {
               type="submit"
               disabled={loading}
               className="w-full text-white font-semibold py-3 rounded-xl transition-opacity disabled:opacity-60 cursor-pointer flex items-center justify-center gap-2 mt-2"
-              style={{ background: 'linear-gradient(135deg, #C2185B, #7B1FA2)' }}
+              style={{ background: 'linear-gradient(135deg, #B8860B, #C9A227)' }}
             >
               {loading ? (
                 <>
@@ -146,6 +146,9 @@ export default function AdminLoginPage() {
 
         <p className="text-center mt-5 text-white/25 text-xs">
           AMOUR · SAINTETÉ · PUISSANCE · ÉQUILIBRE
+        </p>
+        <p className="text-center mt-2 text-white/15 text-[10px]">
+          Powered by Martinez Muzela
         </p>
       </motion.div>
     </div>

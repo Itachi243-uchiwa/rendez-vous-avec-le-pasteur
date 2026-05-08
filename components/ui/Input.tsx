@@ -13,10 +13,10 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 export function Input({ label, error, className = '', ...props }: InputProps) {
   return (
     <div className="flex flex-col gap-1.5">
-      {label && <label className="text-sm font-semibold text-[#3D0870]">{label}</label>}
+      {label && <label className="text-sm font-semibold text-[#0D1B3E]">{label}</label>}
       <input
-        className={`w-full px-4 py-3 rounded-xl border border-[#EDE6FF] bg-white text-[#2D1B5E]
-          placeholder:text-[#B8A8D0] focus:border-[#8B31D4] focus:ring-2 focus:ring-[#8B31D4]/15
+        className={`w-full px-4 py-3 rounded-xl border border-[#B8C8DF] bg-white text-[#0D1B3E]
+          placeholder:text-[#94A3B8] focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/15
           transition-all outline-none text-sm ${className}`}
         {...props}
       />
@@ -28,10 +28,10 @@ export function Input({ label, error, className = '', ...props }: InputProps) {
 export function Textarea({ label, error, className = '', ...props }: TextareaProps) {
   return (
     <div className="flex flex-col gap-1.5">
-      {label && <label className="text-sm font-semibold text-[#3D0870]">{label}</label>}
+      {label && <label className="text-sm font-semibold text-[#0D1B3E]">{label}</label>}
       <textarea
-        className={`w-full px-4 py-3 rounded-xl border border-[#EDE6FF] bg-white text-[#2D1B5E]
-          placeholder:text-[#B8A8D0] focus:border-[#8B31D4] focus:ring-2 focus:ring-[#8B31D4]/15
+        className={`w-full px-4 py-3 rounded-xl border border-[#B8C8DF] bg-white text-[#0D1B3E]
+          placeholder:text-[#94A3B8] focus:border-[#C9A227] focus:ring-2 focus:ring-[#C9A227]/15
           transition-all outline-none text-sm resize-none ${className}`}
         {...props}
       />

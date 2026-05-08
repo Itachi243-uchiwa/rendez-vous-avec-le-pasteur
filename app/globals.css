@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Brand — tiré du logo La Compassion */
-  --color-purple:       #5E0FAB;   /* violet profond du texte */
-  --color-purple-light: #8B31D4;   /* violet medium */
-  --color-purple-dark:  #3D0870;   /* violet très sombre */
-  --color-pink:         #C2185B;   /* rose/magenta du globe */
-  --color-blue:         #1565C0;   /* bleu du globe */
-  --color-lavender:     #F5F0FF;   /* fond très doux */
-  --color-lavender-mid: #EDE6FF;
-  --color-muted:        #8B7AAF;
+  /* Brand — Compassion Bruxelles */
+  --color-navy:       #0D1B3E;   /* bleu marine profond */
+  --color-navy-mid:   #1A3068;   /* bleu marine medium */
+  --color-navy-light: #2B4A8C;   /* bleu marine clair */
+  --color-gold:       #C9A227;   /* or accent */
+  --color-gold-dark:  #A07D1A;   /* or foncé */
+  --color-gold-light: #FBF3D5;   /* fond or très doux */
+  --color-gold-mid:   #F4E4A0;   /* fond or doux */
+  --color-muted:      #475569;   /* texte atténué */
 
   --font-sans:    var(--font-inter);
   --font-display: var(--font-playfair);
@@ -18,8 +18,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background-color: #F7F4FF;
-  color: #2D1B5E;
+  background-color: #E6EBF5;
+  color: #0D1B3E;
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,25 +37,25 @@ body::before {
 
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #8B31D450; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #8B31D4; }
+::-webkit-scrollbar-thumb { background: #C9A22760; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #C9A227; }
 
 *:focus-visible {
-  outline: 2px solid #8B31D4;
+  outline: 2px solid #C9A227;
   outline-offset: 2px;
   border-radius: 6px;
 }
 
-::selection { background: #8B31D430; color: #3D0870; }
+::selection { background: #C9A22730; color: #0D1B3E; }
 
 .font-display { font-family: var(--font-playfair), Georgia, serif; }
 
-/* Gradient utilitaire du logo */
+/* Gradient utilitaire Bruxelles */
 .brand-gradient {
-  background: linear-gradient(135deg, #C2185B 0%, #7B1FA2 50%, #1565C0 100%);
+  background: linear-gradient(135deg, #0D1B3E 0%, #1A3068 50%, #2B4A8C 100%);
 }
 .brand-gradient-text {
-  background: linear-gradient(135deg, #C2185B 0%, #7B1FA2 50%, #1565C0 100%);
+  background: linear-gradient(135deg, #C9A227 0%, #B8860B 50%, #A07D1A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

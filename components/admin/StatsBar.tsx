@@ -21,9 +21,9 @@ export default function StatsBar({ appointments, date }: Props) {
     {
       label: 'Total',
       value: total,
-      iconBg: 'from-[#5E0FAB] to-[#8B31D4]',
+      iconBg: 'from-[#0D1B3E] to-[#1A3068]',
       icon: <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="white" strokeWidth={2}><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></svg>,
-      valueColor: '#3D0870',
+      valueColor: '#0D1B3E',
     },
     {
       label: 'En attente',
@@ -49,9 +49,9 @@ export default function StatsBar({ appointments, date }: Props) {
     {
       label: 'Durée moy.',
       value: avgDuration ? `${avgDuration}m` : '—',
-      iconBg: 'from-[#C2185B] to-[#E91E8C]',
+      iconBg: 'from-[#B8860B] to-[#C9A227]',
       icon: <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="white" strokeWidth={2}><line x1="18" y1="20" x2="18" y2="10" /><line x1="12" y1="20" x2="12" y2="4" /><line x1="6" y1="20" x2="6" y2="14" /></svg>,
-      valueColor: '#9D174D',
+      valueColor: '#A07D1A',
     },
   ];
 
@@ -59,13 +59,13 @@ export default function StatsBar({ appointments, date }: Props) {
     <div className="space-y-3">
     {/* Date label */}
     <div className="flex items-center gap-2">
-      <span className="text-xs font-semibold text-[#8B7AAF] uppercase tracking-wider">
+      <span className="text-xs font-semibold text-[#475569] uppercase tracking-wider">
         {isToday(date) ? 'Aujourd\'hui' : 'Journée sélectionnée'}
       </span>
-      <div className="flex-1 h-px bg-[#EDE6FF]" />
+      <div className="flex-1 h-px bg-[#B8C8DF]" />
       {isToday(date) && (
         <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full text-white"
-          style={{ background: 'linear-gradient(135deg, #C2185B, #7B1FA2)' }}>
+          style={{ background: 'linear-gradient(135deg, #C0392B, #E74C3C)' }}>
           LIVE
         </span>
       )}
@@ -77,13 +77,13 @@ export default function StatsBar({ appointments, date }: Props) {
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: i * 0.05 }}
-          className="bg-white rounded-2xl border border-[#EDE6FF] p-3.5"
+          className="bg-white rounded-2xl border border-[#B8C8DF] p-3.5"
         >
           <div className={`inline-flex items-center justify-center w-8 h-8 rounded-xl bg-gradient-to-br ${s.iconBg} mb-2.5`}>
             {s.icon}
           </div>
           <p className="text-2xl font-bold leading-none mb-0.5" style={{ color: s.valueColor }}>{s.value}</p>
-          <p className="text-[10px] text-[#8B7AAF] leading-tight">{s.label}</p>
+          <p className="text-[10px] text-[#475569] leading-tight">{s.label}</p>
         </motion.div>
       ))}
     </div>

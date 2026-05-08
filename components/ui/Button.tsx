@@ -23,13 +23,13 @@ export default function Button({
 
   const variants = {
     primary: 'text-white shadow-sm hover:shadow-md hover:opacity-90',
-    secondary: 'bg-[#3D0870] text-white hover:bg-[#2D0558] shadow-sm hover:shadow-md',
-    ghost: 'bg-transparent text-[#5E0FAB] hover:bg-[#F0EAFF] border border-[#5E0FAB]/20',
+    secondary: 'bg-[#0D1B3E] text-white hover:bg-[#07101F] shadow-sm hover:shadow-md',
+    ghost: 'bg-transparent text-[#1A3068] hover:bg-[#D8E3F5] border border-[#1A3068]/20',
     danger: 'bg-red-500 text-white hover:bg-red-600 shadow-sm',
   };
 
   const primaryStyle = variant === 'primary'
-    ? { background: 'linear-gradient(135deg, #7B1FA2, #9C1B8A 50%, #5E0FAB)' }
+    ? { background: 'linear-gradient(135deg, #B8860B, #C9A227 50%, #D4A017)' }
     : {};
 
   const sizes = {

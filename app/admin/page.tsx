@@ -33,7 +33,7 @@ function isToday(dateStr: string) {
 function LoadingScreen() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-4"
-      style={{ background: 'linear-gradient(135deg, #3D0870, #5E0FAB)' }}>
+      style={{ background: 'linear-gradient(135deg, #0D1B3E, #1A3068)' }}>
       <div className="relative w-20 h-20">
         <motion.div
           animate={{ rotate: 360 }}
@@ -41,7 +41,7 @@ function LoadingScreen() {
           className="absolute inset-0 rounded-full border-2 border-white/20 border-t-white"
         />
         <div className="absolute inset-2.5 rounded-full overflow-hidden bg-white/10">
-          <Image src="/logo.png" alt="" fill sizes="64px" loading="eager" className="object-contain p-1" />
+          <Image src="/NEW logo compassion bruxelles.png" alt="" fill sizes="64px" loading="eager" className="object-contain p-1" />
         </div>
       </div>
       <p className="text-white/60 text-sm">Chargement…</p>
@@ -54,11 +54,11 @@ function EmptyState({ icon, title, desc }: { icon: string; title: string; desc: 
     <motion.div
       initial={{ opacity: 0, scale: 0.97 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="bg-white rounded-2xl border border-[#EDE6FF] py-16 px-6 text-center"
+      className="bg-white rounded-2xl border border-[#B8C8DF] py-16 px-6 text-center"
     >
       <div className="text-5xl mb-4">{icon}</div>
-      <p className="font-semibold text-[#2D1B5E] mb-1">{title}</p>
-      <p className="text-sm text-[#8B7AAF]">{desc}</p>
+      <p className="font-semibold text-[#0D1B3E] mb-1">{title}</p>
+      <p className="text-sm text-[#475569]">{desc}</p>
     </motion.div>
   );
 }
@@ -80,11 +80,11 @@ function DateNav({
   const today = isToday(date);
 
   return (
-    <div className="flex items-center gap-2 bg-white border border-[#EDE6FF] rounded-2xl px-3 py-2 shadow-sm">
+    <div className="flex items-center gap-2 bg-white border border-[#B8C8DF] rounded-2xl px-3 py-2 shadow-sm">
       {/* Prev */}
       <button
         onClick={onPrev}
-        className="p-1.5 rounded-lg hover:bg-[#F0EAFF] text-[#8B7AAF] hover:text-[#5E0FAB] transition-colors cursor-pointer"
+        className="p-1.5 rounded-lg hover:bg-[#D8E3F5] text-[#475569] hover:text-[#1A3068] transition-colors cursor-pointer"
       >
         <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth={2.5}>
           <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
@@ -97,10 +97,10 @@ function DateNav({
           type="date"
           value={date}
           onChange={(e) => e.target.value && onChange(e.target.value)}
-          className="w-full text-center text-sm font-semibold text-[#2D1B5E] bg-transparent outline-none cursor-pointer
+          className="w-full text-center text-sm font-semibold text-[#0D1B3E] bg-transparent outline-none cursor-pointer
             [&::-webkit-calendar-picker-indicator]:opacity-0 [&::-webkit-calendar-picker-indicator]:absolute [&::-webkit-calendar-picker-indicator]:inset-0 [&::-webkit-calendar-picker-indicator]:w-full [&::-webkit-calendar-picker-indicator]:cursor-pointer"
         />
-        <p className="text-[10px] text-[#8B7AAF] text-center capitalize leading-none mt-0.5 pointer-events-none">
+        <p className="text-[10px] text-[#475569] text-center capitalize leading-none mt-0.5 pointer-events-none">
           {formatDate(date)}
         </p>
       </div>
@@ -108,7 +108,7 @@ function DateNav({
       {/* Next */}
       <button
         onClick={onNext}
-        className="p-1.5 rounded-lg hover:bg-[#F0EAFF] text-[#8B7AAF] hover:text-[#5E0FAB] transition-colors cursor-pointer"
+        className="p-1.5 rounded-lg hover:bg-[#D8E3F5] text-[#475569] hover:text-[#1A3068] transition-colors cursor-pointer"
       >
         <svg viewBox="0 0 24 24" fill="none" className="w-4 h-4" stroke="currentColor" strokeWidth={2.5}>
           <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
@@ -122,7 +122,7 @@ function DateNav({
           animate={{ opacity: 1, scale: 1 }}
           onClick={onToday}
           className="text-xs font-semibold px-2.5 py-1 rounded-lg text-white cursor-pointer shrink-0"
-          style={{ background: 'linear-gradient(135deg, #C2185B, #7B1FA2)' }}
+          style={{ background: 'linear-gradient(135deg, #C9A227, #A07D1A)' }}
         >
           Auj.
         </motion.button>
@@ -184,23 +184,22 @@ export default function AdminPage() {
   ];
 
   return (
-    <div className="min-h-screen" style={{ background: '#F7F4FF' }}>
+    <div className="min-h-screen" style={{ background: '#E6EBF5' }}>
       {/* ── Header ─────────────────────────────────────────── */}
       <header
         className="text-white shadow-lg"
-        style={{ background: 'linear-gradient(135deg, #3D0870 0%, #6B0FAB 50%, #1565C0 100%)' }}
+        style={{ background: 'linear-gradient(135deg, #060D1F 0%, #0D1B3E 50%, #152B5C 100%)' }}
       >
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-          {/* Logo blanchi */}
+          {/* Logo */}
           <div className="relative h-9 w-36 shrink-0 overflow-hidden">
             <Image
-              src="/logo.png"
+              src="/NEW logo compassion bruxelles.png"
               alt="La Compassion"
               fill
               sizes="144px"
               loading="eager"
               className="object-contain"
-              style={{ filter: 'brightness(0) invert(1)' }}
             />
           </div>
 
@@ -252,7 +251,7 @@ export default function AdminPage() {
             >
               <div
                 className="text-white rounded-2xl px-5 py-3.5 flex items-center gap-3"
-                style={{ background: 'linear-gradient(135deg, #C2185B, #7B1FA2)' }}
+                style={{ background: 'linear-gradient(135deg, #1A3068, #2B4A8C)' }}
               >
                 <motion.div
                   animate={{ scale: [1, 1.4, 1] }}
@@ -270,7 +269,7 @@ export default function AdminPage() {
         </AnimatePresence>
 
         {/* Tabs */}
-        <div className="flex gap-1 bg-white rounded-2xl p-1 border border-[#EDE6FF] shadow-sm">
+        <div className="flex gap-1 bg-white rounded-2xl p-1 border border-[#B8C8DF] shadow-sm">
           {TABS.map((tab) => (
             <button
               key={tab.key}
@@ -281,16 +280,16 @@ export default function AdminPage() {
                 <motion.div
                   layoutId="tab-pill"
                   className="absolute inset-0 rounded-xl shadow-sm"
-                  style={{ background: 'linear-gradient(135deg, #5E0FAB, #8B31D4)' }}
+                  style={{ background: 'linear-gradient(135deg, #0D1B3E, #1A3068)' }}
                   transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                 />
               )}
-              <span className={`relative z-10 ${activeTab === tab.key ? 'text-white' : 'text-[#8B7AAF]'}`}>
+              <span className={`relative z-10 ${activeTab === tab.key ? 'text-white' : 'text-[#475569]'}`}>
                 {tab.label}
               </span>
               {tab.count !== undefined && tab.count > 0 && (
                 <span className={`relative z-10 text-xs px-1.5 py-0.5 rounded-full font-semibold
-                  ${activeTab === tab.key ? 'bg-white/20 text-white' : 'bg-[#F0EAFF] text-[#5E0FAB]'}`}>
+                  ${activeTab === tab.key ? 'bg-white/20 text-white' : 'bg-[#D8E3F5] text-[#1A3068]'}`}>
                   {tab.count}
                 </span>
               )}
@@ -318,7 +317,7 @@ export default function AdminPage() {
 
           {activeTab === 'slots' && (
             <motion.div key="slots" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.2 }}>
-              <div className="bg-white rounded-2xl border border-[#EDE6FF] shadow-sm p-5">
+              <div className="bg-white rounded-2xl border border-[#B8C8DF] shadow-sm p-5">
                 <SlotManager slots={slots} date={date} onSlotsChange={loadSlots} />
               </div>
             </motion.div>

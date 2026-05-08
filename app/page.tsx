@@ -49,23 +49,23 @@ export default function HomePage() {
 
       {/* ── Hero ───────────────────────────────────────────── */}
       <section className="relative overflow-hidden">
-        {/* Fond dégradé couleurs du logo */}
+        {/* Fond dégradé navy Bruxelles */}
         <div className="absolute inset-0" style={{
-          background: 'linear-gradient(135deg, #3D0870 0%, #6B0FAB 35%, #9C1B8A 65%, #1565C0 100%)'
+          background: 'linear-gradient(135deg, #060D1F 0%, #0D1B3E 40%, #152B5C 70%, #0B2050 100%)'
         }} />
 
         {/* Blobs animés */}
         <motion.div
-          animate={{ scale: [1, 1.15, 1], opacity: [0.15, 0.25, 0.15] }}
+          animate={{ scale: [1, 1.15, 1], opacity: [0.12, 0.22, 0.12] }}
           transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
           className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(circle, #C2185B80, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, #C9A22740, transparent 70%)' }}
         />
         <motion.div
-          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.18, 0.1] }}
+          animate={{ scale: [1, 1.1, 1], opacity: [0.08, 0.15, 0.08] }}
           transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
           className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(circle, #1565C080, transparent 70%)' }}
+          style={{ background: 'radial-gradient(circle, #2B4A8C50, transparent 70%)' }}
         />
 
         {/* Pattern croix */}
@@ -91,7 +91,7 @@ export default function HomePage() {
             <h1 className="font-display text-4xl md:text-5xl font-bold leading-[1.15] mb-3">
               Rencontrez{' '}
               <em className="not-italic" style={{
-                background: 'linear-gradient(90deg, #F9A8D4, #E879F9, #93C5FD)',
+                background: 'linear-gradient(90deg, #FDE68A, #F59E0B, #C9A227)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -119,7 +119,7 @@ export default function HomePage() {
         >
           <Card
             className="overflow-hidden"
-            style={{ boxShadow: '0 12px 50px rgba(94,15,171,0.18)' }}
+            style={{ boxShadow: '0 12px 50px rgba(13,27,62,0.15)' }}
           >
             <AnimatePresence mode="wait">
               {!appointment ? (
@@ -177,15 +177,15 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.35 + i * 0.07 }}
-                  whileHover={{ y: -2, boxShadow: '0 8px 24px rgba(94,15,171,0.12)' }}
-                  className="bg-white border border-[#EDE6FF] rounded-2xl p-3.5 text-center cursor-default"
+                  whileHover={{ y: -2, boxShadow: '0 8px 24px rgba(13,27,62,0.10)' }}
+                  className="bg-white border border-[#B8C8DF] rounded-2xl p-3.5 text-center cursor-default"
                 >
-                  <div className="inline-flex items-center justify-center w-9 h-9 rounded-xl mb-2 text-[#7B1FA2]"
-                    style={{ background: 'linear-gradient(135deg, #F5EEFF, #EDE6FF)' }}>
+                  <div className="inline-flex items-center justify-center w-9 h-9 rounded-xl mb-2 text-[#C9A227]"
+                    style={{ background: 'linear-gradient(135deg, #E6EBF5, #D8E3F5)' }}>
                     {f.icon}
                   </div>
-                  <p className="text-xs font-semibold text-[#3D0870] leading-tight">{f.title}</p>
-                  <p className="text-[10px] text-[#8B7AAF] mt-0.5 leading-tight">{f.desc}</p>
+                  <p className="text-xs font-semibold text-[#0D1B3E] leading-tight">{f.title}</p>
+                  <p className="text-[10px] text-[#475569] mt-0.5 leading-tight">{f.desc}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -193,8 +193,13 @@ export default function HomePage() {
         </AnimatePresence>
       </main>
 
-      <footer className="relative text-center py-6 text-xs text-[#8B7AAF] z-10">
-        © {new Date().getFullYear()} La Compassion Bruxelles &mdash; Amour · Sainteté · Puissance · Équilibre
+      <footer className="relative text-center py-6 z-10 space-y-1">
+        <p className="text-xs text-[#475569]">
+          © {new Date().getFullYear()} La Compassion Bruxelles &mdash; Amour · Sainteté · Puissance · Équilibre
+        </p>
+        <p className="text-[10px] text-[#94A3B8]">
+          Powered by Martinez Muzela
+        </p>
       </footer>
     </div>
   );
