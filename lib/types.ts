@@ -3,7 +3,7 @@ export type AppointmentStatus = 'waiting' | 'active' | 'done' | 'cancelled';
 export interface Appointment {
   id: string;
   name: string;
-  duration: 30 | 60;
+  duration: 5 | 15 | 30 | 45;
   reason?: string;
   status: AppointmentStatus;
   estimatedStartTime: string; // ISO string
