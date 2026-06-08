@@ -87,7 +87,7 @@ async function fetchAppointmentsByDate(date: string): Promise<Appointment[]> {
 
 export async function createAppointment(data: {
   name: string;
-  duration: 30 | 60;
+  duration: Appointment['duration'];
   reason?: string;
   date: string;
 }): Promise<Appointment> {
