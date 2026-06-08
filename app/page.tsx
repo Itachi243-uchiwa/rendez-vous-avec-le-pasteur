@@ -15,7 +15,7 @@ const FEATURES = [
         <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
       </svg>
     ),
-    title: '30 ou 60 min',
+    title: '5, 15, 30 ou 45 min',
     desc: 'Choisissez votre durée',
   },
   {
